@@ -33,5 +33,49 @@ console.dir(obj);
 Создайте исходный массив, содержащий значения различных типов, в качестве элементов, например: [true, 'hello', 5, 12, -200, false, false, 'word'] но желательно более длинный и разнообразный.
 Создайте объект-коллекцию (хеш) с именами типов в виде ключей и 0 в качестве значения, например: { number: 0, string: 0, boolean: 0 }
 Пройдитесь по массиву циклом for..of и для каждого элемента массива, увеличивайте соответствующее значение в объекте-коллекции.
+*/
+
+const data:(boolean | number | string | object)[] = [true, 'hello', 5, 12, -200, false, false, 'word', [1,2], {a:3}, {b:5}];
+
+type datatypeCollection = {
+    number: number,
+    string: number,
+    boolean: number,
+    object: number,
+}
+
+const datatypes:datatypeCollection = {
+    number: 0,
+    string: 0,
+    boolean: 0,
+    object: 0,
+}
+
+for (let item of data) {
+    datatypes[typeof item] += 1;
+}
+
+console.dir(datatypes);
+
+/*
 Измените пример: удалите все ключи из начальной коллекции и добавляйте их динамически в цикле.
 */
+
+
+type datatype2Collection = {
+    number?: number,
+    string?: number,
+    boolean?: number,
+    object?: number,
+}
+
+const datatypes2:datatype2Collection = {}
+
+for (let item of data) {
+    let itemType = typeof item;
+    if (!(itemType in datatypes2)) datatypes2[itemType] = 0;
+    datatypes2[itemType] += 1;
+
+}
+
+console.dir(datatypes2);
