@@ -20,18 +20,25 @@ console.dir(obj);
 Создайте объект-коллекцию (хеш) с именами типов в виде ключей и 0 в качестве значения, например: { number: 0, string: 0, boolean: 0 }
 Пройдитесь по массиву циклом for..of и для каждого элемента массива, увеличивайте соответствующее значение в объекте-коллекции.
 */
-var data = [true, 'hello', 5, 12, -200, false, false, 'word', [1, 2], { a: 3 }, { b: 5 }];
+var data = [true, 'hello', 5, 12, -200, false, false, 'word', [1, 2], { a: 3 }, { b: 5 },];
 var datatypes = {
     number: 0,
     string: 0,
     boolean: 0,
-    object: 0
+    object: 0,
+    bigint: 0,
+    symbol: 0,
+    undefined: 0,
+    "function": 0
 };
 for (var _i = 0, data_1 = data; _i < data_1.length; _i++) {
     var item = data_1[_i];
     datatypes[typeof item] += 1;
 }
 console.dir(datatypes);
+/*
+Измените пример: удалите все ключи из начальной коллекции и добавляйте их динамически в цикле.
+*/
 var datatypes2 = {};
 for (var _a = 0, data_2 = data; _a < data_2.length; _a++) {
     var item = data_2[_a];

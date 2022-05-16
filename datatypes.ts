@@ -35,13 +35,17 @@ console.dir(obj);
 Пройдитесь по массиву циклом for..of и для каждого элемента массива, увеличивайте соответствующее значение в объекте-коллекции.
 */
 
-const data:(boolean | number | string | object)[] = [true, 'hello', 5, 12, -200, false, false, 'word', [1,2], {a:3}, {b:5}];
+const data:(boolean | number | string | object)[] = [true, 'hello', 5, 12, -200, false, false, 'word', [1,2], {a:3}, {b:5}, ];
 
 type datatypeCollection = {
     number: number,
     string: number,
     boolean: number,
     object: number,
+    bigint: number,
+    symbol: number,
+    undefined: number,
+    function: number
 }
 
 const datatypes:datatypeCollection = {
@@ -49,6 +53,11 @@ const datatypes:datatypeCollection = {
     string: 0,
     boolean: 0,
     object: 0,
+    bigint: 0,
+    symbol: 0,
+    undefined: 0,
+    function: 0
+
 }
 
 for (let item of data) {
@@ -62,14 +71,8 @@ console.dir(datatypes);
 */
 
 
-type datatype2Collection = {
-    number?: number,
-    string?: number,
-    boolean?: number,
-    object?: number,
-}
 
-const datatypes2:datatype2Collection = {}
+const datatypes2:any = {}
 
 for (let item of data) {
     let itemType = typeof item;
